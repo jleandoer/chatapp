@@ -1,0 +1,7 @@
+{
+  "name": "callapp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

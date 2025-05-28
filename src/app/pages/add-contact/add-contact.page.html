@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Add Contact</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="stacked">Phone</ion-label>
+    <ion-input [(ngModel)]="phone" name="phone" required></ion-input>
+  </ion-item>
+
+  <ion-button expand="full" (click)="searchContact()">Search Contact</ion-button>
+
+  <ion-button expand="full" (click)="addContact()" color="primary" *ngIf="contact">
+    Add Contact
+  </ion-button>
+  
+  <ion-text color="danger" *ngIf="!contact">No contact found with this phone number.</ion-text>
+</ion-content>

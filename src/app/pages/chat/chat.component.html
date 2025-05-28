@@ -1,0 +1,59 @@
+<div class="chat-container">
+
+  <div class="chat-header">
+<h2>Chat con {{ contactName }}</h2>
+  </div>
+
+  <div class="chat-messages">
+    <div *ngFor="let msg of messages"
+      [ngClass]="{ 'my-message': msg.sender_id === userId, 'other-message': msg.sender_id !== userId }">
+      <div class="message-content">
+
+   
+        <img *ngIf="msg.content_type?.startsWith('image/')" [src]="msg.content" alt="Imagen" class="chat-media" />
+
+     
+        <audio *ngIf="msg.content_type?.startsWith('audio/')" [src]="msg.content" controls class="chat-media"></audio>
+
+       
+        <video *ngIf="msg.content_type?.startsWith('video/')" [src]="msg.content" controls class="chat-media"></video>
+
+        <a *ngIf="!msg.content_type?.startsWith('image/') &&
+                  !msg.content_type?.startsWith('audio/') &&
+                  !msg.content_type?.startsWith('video/') &&
+                  msg.content_type !== 'text/plain' &&
+                  msg.content_type !== 'location/url'" [href]="msg.content" target="_blank" class="chat-file">
+          Archivo adjunto
+        </a>
+
+      
+        <span *ngIf="msg.content_type === 'text/plain'">{{ msg.content }}</span>
+       
+
+       
+        <a *ngIf="msg.content_type === 'location/url'" [href]="msg.content" target="_blank" class="chat-location">
+          📍 Ver ubicación
+        </a>
+
+        <span class="timestamp">{{ msg.created_at | date:'shortTime' }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="chat-input">
+    <input type="text" [(ngModel)]="messageText" placeholder="Escribe tu mensaje..." (keyup.enter)="sendMessage()" />
+    <button (click)="fileInput.click()">📎</button>
+    <input type="file" hidden #fileInput (change)="onFileSelected($event)" />
+    <button (click)="sendMessage()">Enviar</button>
+  </div>
+
+  <div class="chat-actions">
+    <button (click)="sendPhoto(true)" title="Enviar foto desde galería">🖼️</button>
+    <button (click)="sendPhoto(false)" title="Tomar foto">📷</button>
+    <button (click)="sendVideo()" title="Grabar video">🎥</button>
+    <button (mousedown)="startRecording()" (mouseup)="stopRecording()" title="Grabar audio">🎤</button>
+    <button (click)="sendFileFromPicker()" title="Enviar archivo">📁</button>
+    <button (click)="sendLocation()" title="Enviar ubicación">📍</button>
+  </div>
+
+</div>
