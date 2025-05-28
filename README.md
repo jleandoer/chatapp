@@ -14,13 +14,19 @@ JitCall es una aplicación de mensajería moderna construida con **Angular + Ion
 
 ## Tecnologías
 
-| Tecnología       | Descripción |
-| Angular + Ionic  | Framework principal (frontend y móvil) |
-| Firebase         | Autenticación, Firestore, FCM |
-| Supabase         | Almacenamiento de archivos (bucket `chat-files`) |
-| Mapbox GL JS     | Renderizado de mapas para ubicación |
-| Jitsi Meet       | Videollamadas (vía servidor público) |
-| Capacitor        | Acceso nativo a cámara, micrófono, geolocalización, etc. |
+| Tecnología                   | Descripción |
+
+| Angular + Ionic              | Framework principal (frontend y móvil) |
+
+| Firebase                     | Autenticación, Firestore, FCM |
+
+| Supabase                     | Almacenamiento de archivos (bucket `chat-files`) |
+
+| Mapbox GL JS                 | Renderizado de mapas para ubicación |
+
+| Jitsi Meet                   | Videollamadas (vía servidor público) |
+
+| Capacitor                    | Acceso nativo a cámara, micrófono, geolocalización, etc. |
 
 
 ## Instalacion
